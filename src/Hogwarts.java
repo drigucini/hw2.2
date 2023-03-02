@@ -1,11 +1,11 @@
 public class Hogwarts {
     private String name;
     private String surname;
-    private byte transgressionDistance;
-    private byte spellPower;
+    private int transgressionDistance;
+    private int spellPower;
     private int id;
 
-    public Hogwarts(String name, String surname, int id, byte transgressionDistance, byte spellPower) {
+    public Hogwarts(String name, String surname, int id, int transgressionDistance, int spellPower) {
         this.transgressionDistance = transgressionDistance;
         this.spellPower = spellPower;
         this.name = name;
@@ -13,12 +13,24 @@ public class Hogwarts {
         this.id = id;
     }
 
-    public byte getTransgressionDistance() {
+    public int getTransgressionDistance() {
         return transgressionDistance;
     }
 
-    public byte getSpellPower() {
+    public int getSpellPower() {
         return spellPower;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
