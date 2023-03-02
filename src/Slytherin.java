@@ -13,4 +13,16 @@ class Slytherin extends Hogwarts {
         this.powerLust = powerLust;
         this.savvy = savvy;
     }
+
+    @Override
+    public String toString() {
+        return "Full name " + getName() + " " + getSurname() +
+                "\nStats (" + getSpellPower() +
+                ", " + getTransgressionDistance() +
+                ")\ncunning = " + cunning +
+                ", determination = " + determination +
+                ", ambition = " + ambition +
+                ", powerLust = " + powerLust +
+                ", savvy = " + savvy;
+    }
 }

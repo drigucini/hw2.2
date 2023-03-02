@@ -11,9 +11,9 @@ public class Main {
         int first = nameFirst.getHonor() + nameFirst.getNobility() + nameFirst.getCourage();
         int second = nameSecond.getHonor() + nameSecond.getNobility() + nameSecond.getCourage();
         if (first > second) {
-            System.out.println(nameFirst.getName() + " is a better Gryffindor student, than " + nameSecond.getName());
+            System.out.println("\n" + nameFirst.getName() + " is a better Gryffindor student than " + nameSecond.getName());
         } else {
-            System.out.println(nameSecond.getName() + " is a better Gryffindor student, than " + nameFirst.getName());
+            System.out.println("\n" + nameSecond.getName() + " is a better Gryffindor student than " + nameFirst.getName());
         }
     }
 
@@ -21,28 +21,32 @@ public class Main {
         int first = firstStudent.getSpellPower() + firstStudent.getTransgressionDistance();
         int second = secondStudent.getSpellPower() + secondStudent.getTransgressionDistance();
         if (first > second) {
-            System.out.println(firstStudent.getName() + " is more powerful than " + secondStudent.getName());
+            System.out.println("\n" + firstStudent.getName() + " is more powerful than " + secondStudent.getName());
         } else {
-            System.out.println(secondStudent.getName() + " is more powerful than " + firstStudent.getName());
+            System.out.println("\n" + secondStudent.getName() + " is more powerful than " + firstStudent.getName());
         }
     }
     public static void main(String[] args) {
         byte min = 0;
         byte max = 100;
         int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
+        int randomNum1 = ThreadLocalRandom.current().nextInt(min, max + 1);
+        int randomNum2 = ThreadLocalRandom.current().nextInt(min, max + 1);
+        int randomNum3 = ThreadLocalRandom.current().nextInt(min, max + 1);
+        int randomNum4 = ThreadLocalRandom.current().nextInt(min, max + 1);
 
 
-        Gryffindor hermione = new Gryffindor("Hermione", "Strange",  1,  randomNum,  4,  4,  4);
-        Gryffindor harry = new Gryffindor("Harry", "Potter", 2,  25,  54,  4,  76);
-        Gryffindor ron = new Gryffindor("Ron", "Wiesley", 3, 5,  randomNum,  44,  16);
+        Gryffindor hermione = new Gryffindor("Hermione", "Granger",  1,  randomNum,  4,  4,  4);
+        Gryffindor harry = new Gryffindor("Harry", "Potter", 2,  randomNum1,  randomNum2,  4,  76);
+        Gryffindor ron = new Gryffindor("Ron", "Weasley", 3, 5,  randomNum,  44,  16);
 
-        Slytherin drako = new Slytherin("Drako", "McFloy", 4,  57, 35, 40, 36, 100, 23, 45);
-        Slytherin graham = new Slytherin("Graham", "Montegu", 4,  27, 34, randomNum, 36, 18, 23, 55);
+        Slytherin draco = new Slytherin("Draco", "Malfoy", 4,  randomNum3, randomNum4, 40, 36, 100, 23, 45);
+        Slytherin graham = new Slytherin("Graham", "Montague", 4,  27, 34, randomNum, 36, 18, 23, 55);
         Slytherin gregory = new Slytherin("Gregory", "Goyle", 4,  57, 4, 10, 46, 10, 23, 67);
 
         printStudent(ron);
+        printStudent(gregory);
         compareStudents(harry, hermione);
-        compareStudentsPower(drako,harry);
-
+        compareStudentsPower(draco,harry);
     }
 }
