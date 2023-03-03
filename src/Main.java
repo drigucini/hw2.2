@@ -44,6 +44,14 @@ public class Main {
         Slytherin graham = new Slytherin("Graham", "Montague", 4,  27, 34, randomNum, 36, 18, 23, 55);
         Slytherin gregory = new Slytherin("Gregory", "Goyle", 4,  57, 4, 10, 46, 10, 23, 67);
 
+        Ravenclaw cho = new Ravenclaw("Cho", "Chang", 6, 56, 21, 3, 2, 1, 4);
+        Ravenclaw padma = new Ravenclaw("Padma", "Patil", 6, 56, 21, 3, 2, 1, 4);
+        Ravenclaw marcus = new Ravenclaw("Marcus", "Belby", 6, 56, 21, 3, 2, 1, 4);
+
+        Hufflepuff zacharias = new Hufflepuff("Zacharias", "Smith", 95, 27, 78, 23, 76, 45);
+        Hufflepuff cedric = new Hufflepuff("Cedric", "Diggory", 95, 27, 78, 23, 76, 45);
+        Hufflepuff justin = new Hufflepuff("Justin", "Finch-Fletchley", 95, 27, 78, 23, 76, 45);
+
         printStudent(ron);
         printStudent(gregory);
         compareStudents(harry, hermione);
