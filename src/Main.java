@@ -1,60 +1,40 @@
 import java.util.concurrent.ThreadLocalRandom;
-
 public class Main {
-    public static void printStudent(Gryffindor name) {
-        System.out.println(name);
-    }
-    public static void printStudent(Slytherin name) {
-        System.out.println(name);
-    }
-    public static void compareStudents(Gryffindor nameFirst, Gryffindor nameSecond) {
-        int first = nameFirst.getHonor() + nameFirst.getNobility() + nameFirst.getCourage();
-        int second = nameSecond.getHonor() + nameSecond.getNobility() + nameSecond.getCourage();
-        if (first > second) {
-            System.out.println("\n" + nameFirst.getName() + " is a better Gryffindor student than " + nameSecond.getName());
-        } else {
-            System.out.println("\n" + nameSecond.getName() + " is a better Gryffindor student than " + nameFirst.getName());
-        }
-    }
-
-    public static void compareStudentsPower(Hogwarts firstStudent, Hogwarts secondStudent) {
-        int first = firstStudent.getSpellPower() + firstStudent.getTransgressionDistance();
-        int second = secondStudent.getSpellPower() + secondStudent.getTransgressionDistance();
-        if (first > second) {
-            System.out.println("\n" + firstStudent.getName() + " is more powerful than " + secondStudent.getName());
-        } else {
-            System.out.println("\n" + secondStudent.getName() + " is more powerful than " + firstStudent.getName());
-        }
-    }
-    public static void main(String[] args) {
+    public static int giveRandom() {
         byte min = 0;
         byte max = 100;
-        int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
-        int randomNum1 = ThreadLocalRandom.current().nextInt(min, max + 1);
-        int randomNum2 = ThreadLocalRandom.current().nextInt(min, max + 1);
-        int randomNum3 = ThreadLocalRandom.current().nextInt(min, max + 1);
-        int randomNum4 = ThreadLocalRandom.current().nextInt(min, max + 1);
+        return ThreadLocalRandom.current().nextInt(min, max + 1);
+    }
+    public static void main(String[] args) {
 
+        GryffindorStudent hermione = new GryffindorStudent("Hermione", "Granger",  giveRandom(),  giveRandom(),  giveRandom(), giveRandom(), giveRandom());
+        GryffindorStudent harry = new GryffindorStudent("Harry", "Potter", giveRandom(),  giveRandom(),  giveRandom(), giveRandom(), giveRandom());
+        GryffindorStudent ron = new GryffindorStudent("Ron", "Weasley", giveRandom(), giveRandom(),  giveRandom(), giveRandom(), giveRandom());
 
-        Gryffindor hermione = new Gryffindor("Hermione", "Granger",  1,  randomNum,  4,  4,  4);
-        Gryffindor harry = new Gryffindor("Harry", "Potter", 2,  randomNum1,  randomNum2,  4,  76);
-        Gryffindor ron = new Gryffindor("Ron", "Weasley", 3, 5,  randomNum,  44,  16);
+        SlytherinStudent draco = new SlytherinStudent("Draco", "Malfoy", giveRandom(),  giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
+        SlytherinStudent graham = new SlytherinStudent("Graham", "Montague", giveRandom(),  giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
+        SlytherinStudent gregory = new SlytherinStudent("Gregory", "Goyle", giveRandom(),  giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
 
-        Slytherin draco = new Slytherin("Draco", "Malfoy", 4,  randomNum3, randomNum4, 40, 36, 100, 23, 45);
-        Slytherin graham = new Slytherin("Graham", "Montague", 4,  27, 34, randomNum, 36, 18, 23, 55);
-        Slytherin gregory = new Slytherin("Gregory", "Goyle", 4,  57, 4, 10, 46, 10, 23, 67);
+        RavenclawStudent cho = new RavenclawStudent("Cho", "Chang", giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
+        RavenclawStudent padma = new RavenclawStudent("Padma", "Patil", giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
+        RavenclawStudent marcus = new RavenclawStudent("Marcus", "Belby", giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
 
-        Ravenclaw cho = new Ravenclaw("Cho", "Chang", 6, 56, 21, 3, 2, 1, 4);
-        Ravenclaw padma = new Ravenclaw("Padma", "Patil", 6, 56, 21, 3, 2, 1, 4);
-        Ravenclaw marcus = new Ravenclaw("Marcus", "Belby", 6, 56, 21, 3, 2, 1, 4);
+        HufflepuffStudent zacharias = new HufflepuffStudent("Zacharias", "Smith", giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
+        HufflepuffStudent cedric = new HufflepuffStudent("Cedric", "Diggory", giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
+        HufflepuffStudent justin = new HufflepuffStudent("Justin", "Finch-Fletchley", giveRandom(), giveRandom(), giveRandom(), giveRandom(), giveRandom());
 
-        Hufflepuff zacharias = new Hufflepuff("Zacharias", "Smith", 95, 27, 78, 23, 76, 45);
-        Hufflepuff cedric = new Hufflepuff("Cedric", "Diggory", 95, 27, 78, 23, 76, 45);
-        Hufflepuff justin = new Hufflepuff("Justin", "Finch-Fletchley", 95, 27, 78, 23, 76, 45);
+        GryffindorStudent.printStudent(ron);
+        SlytherinStudent.printStudent(gregory);
+        RavenclawStudent.printStudent(cho);
+        HufflepuffStudent.printStudent(zacharias);
 
-        printStudent(ron);
-        printStudent(gregory);
-        compareStudents(harry, hermione);
-        compareStudentsPower(draco,harry);
+        GryffindorStudent.compareStudents(harry, hermione);
+        SlytherinStudent.compareStudents(graham, gregory);
+        RavenclawStudent.compareStudents(padma, marcus);
+        HufflepuffStudent.compareStudents(cedric, justin);
+
+        HogwartsStudent.compareStudentsPower(draco,harry);
+        HogwartsStudent.compareStudentsPower(cho,justin);
+        HogwartsStudent.compareStudentsPower(zacharias,cedric);
     }
 }
